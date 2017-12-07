@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
+import { HomePage } from '../home/home';
+import { HomeVendedorPage } from '../home-vendedor/home-vendedor';
 
 
 @IonicPage()
@@ -114,9 +116,36 @@ export class VerKioskoPage {
       
       
     }
-    firebase.database().ref('Usuario/'+'/'+firebase.auth().currentUser.uid+'/favoritos'+'/'+Date.now()).set(favorito);
+    firebase.database().ref('Favoritos/'+firebase.auth().currentUser.uid+'/'+Date.now()).set(favorito);
 
 
+  }
+  closeModal(){
+    firebase.database().ref('Usuario/'+firebase.auth().currentUser.uid).on('value', data =>{
+      if(data.val() != null){
+        var datos = data.val();
+        var keys = Object.keys(datos)
+    
+        for(var i = 0; i < keys.length; i++) {
+          var k = keys[i];
+          
+            var datoQuestion = datos[k];
+            if(datoQuestion.Tipo){
+             // console.log(datoQuestion.Tipo);
+              var tipo = datoQuestion.Tipo;
+              if( tipo =='Consumidor'){
+                this.navCtrl.setRoot(HomePage);
+                
+              }
+              else{
+                this.navCtrl.setRoot(HomeVendedorPage);
+                
+              }
+            }
+
+        }
+      }
+    });
   }
  
 
