@@ -9,6 +9,7 @@ import { HomeVendedorPage } from '../pages/home-vendedor/home-vendedor';
 import { MisKioskosPage } from '../pages/mis-kioskos/mis-kioskos';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
+import { MisPedidosPage } from '../pages/mis-pedidos/mis-pedidos';
 @Component({
   templateUrl: 'app.html'
 })
@@ -49,7 +50,8 @@ export class MyApp {
                     this.pages = [
                       { title: 'Home', component: HomePage },
                       {title : 'Perfil', component : PerfilPage},
-                      {title : 'Favoritos', component : FavoritosPage}
+                      {title : 'Favoritos', component : FavoritosPage},
+                      {title: 'Pedidos', component : MisPedidosPage}
                       
                       
                     ];

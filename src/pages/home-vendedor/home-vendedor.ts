@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AddkioskoPage } from '../addkiosko/addkiosko';
+import { PedidosPage } from '../pedidos/pedidos';
 
 
 @IonicPage()
@@ -20,6 +21,9 @@ export class HomeVendedorPage {
   }
   AgregarKiosko(){
     this.navCtrl.push(AddkioskoPage);
+  }
+  Pedidos(){
+    this.navCtrl.push(PedidosPage);
   }
   
 

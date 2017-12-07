@@ -28,10 +28,26 @@
                 <p>
                   {{ card.PDescripcion }}
                 </p>
-                <ion-icon name="add" ></ion-icon>
-                <ion-icon name="star"(click)="addFavoritos()"></ion-icon>
+                <ion-row no-padding>
+                    <ion-col>
+                        <button ion-button clear small color="danger" ion-start (click)="addFavoritos()" >
+                          <ion-icon name="star" ></ion-icon>
+      
+                        </button>
+                      </ion-col>
+                      <ion-col>
+                          <button ion-button clear small color="danger" ion-start (click)="addPedido()">
+                            <ion-icon name="ios-cart" ></ion-icon>
+                          </button>
+                        </ion-col>
+                        
+                </ion-row>
+                
+               
+                
                 
                    </ion-card-content>
+                  
               </ion-card>
             </ion-list>
           </ion-col>

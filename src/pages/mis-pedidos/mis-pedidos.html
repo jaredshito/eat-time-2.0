@@ -1,5 +1,5 @@
 <!--
-  Generated template for the PedidosPage page.
+  Generated template for the MisPedidosPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,13 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>pedidos</ion-title>
+    <ion-title>Pedidos</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </button>
+</ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    
     <ion-grid>
         <ion-row>
           <ion-col>
@@ -33,5 +39,5 @@
           </ion-col>
         </ion-row>
   </ion-grid>
-
-</ion-content>
+  
+  </ion-content>

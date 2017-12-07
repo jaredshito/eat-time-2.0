@@ -21,6 +21,8 @@ import { AddMenuPage } from '../pages/add-menu/add-menu';
 import { ViewMykioskosPage } from '../pages/view-mykioskos/view-mykioskos';
 import { VerKioskoPage } from '../pages/ver-kiosko/ver-kiosko';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
+import { MisPedidosPage } from '../pages/mis-pedidos/mis-pedidos';
+import { PedidosPage } from '../pages/pedidos/pedidos';
 
 export const config = {
   apiKey: "AIzaSyDkRbGa3v8O1YuTzChwDQxMFZ0oce-v0mE",
@@ -45,7 +47,10 @@ export const config = {
     ViewMykioskosPage,
     AddMenuPage,
     VerKioskoPage,
-    FavoritosPage
+    FavoritosPage,
+    MisPedidosPage,
+    PedidosPage
+
     
 
   ],
@@ -68,7 +73,10 @@ export const config = {
     ViewMykioskosPage,
     AddMenuPage,
     VerKioskoPage,
-    FavoritosPage
+    FavoritosPage,
+    MisPedidosPage,
+    PedidosPage
+
   ],
   providers: [
     StatusBar,

@@ -18,6 +18,7 @@ export class VerKioskoPage {
   Producto=[];
   ProductoId="";
   favoritos={id:""};
+  pedido={Id:"",Producto:"",Comprador:""};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.Nombre = this.navParams.get("Nombre");
@@ -117,6 +118,59 @@ export class VerKioskoPage {
       
     }
     firebase.database().ref('Favoritos/'+firebase.auth().currentUser.uid+'/'+Date.now()).set(favorito);
+
+
+  }
+  addPedido(){
+    console.log("hola");
+    firebase.database().ref('Kioskos/').on('value', data => {
+      if(data.val() != null){
+        var datos = data.val();
+        var keys = Object.keys(datos)
+  
+          for(var i = 0; i < keys.length; i++) {
+            var k = keys[i];
+            
+              var datoKiosko = datos[k];
+              
+              for(var w in datoKiosko){
+                
+                if(datoKiosko[w].Nombre == this.Nombre){
+                  var menus = datoKiosko[w];
+                  for(var z in menus){
+                    if(menus[z].Tiempo != null){
+                      
+                          this.ProductoId = menus[z].Id
+                          
+                        
+                      
+                    }
+                    
+                                          
+                  }
+                      
+                      
+                      
+                    
+              }
+            }
+            
+              
+            
+          }
+      }
+    });
+    let pedido={
+    
+      Producto:this.ProductoId,
+      Id : Date.now(),
+      Comprador : firebase.auth().currentUser.uid
+      
+      
+      
+    }
+    console.log("perro");
+    firebase.database().ref('Pedidos/'+firebase.auth().currentUser.uid+'/'+Date.now()).set(pedido);
 
 
   }

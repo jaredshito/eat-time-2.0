@@ -4,17 +4,24 @@ import firebase from 'firebase';
 import { HomePage } from '../home/home';
 import { HomeVendedorPage } from '../home-vendedor/home-vendedor';
 
+/**
+ * Generated class for the MisPedidosPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
 @IonicPage()
 @Component({
-  selector: 'page-favoritos',
-  templateUrl: 'favoritos.html',
+  selector: 'page-mis-pedidos',
+  templateUrl: 'mis-pedidos.html',
 })
-export class FavoritosPage {
+export class MisPedidosPage {
   Kioskos=[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    firebase.database().ref('Favoritos').on('value', data =>{
+    firebase.database().ref('Pedidos').on('value', data =>{
       if(data.val() != null){
         var datos = data.val();
         var keys = Object.keys(datos)
@@ -24,7 +31,7 @@ export class FavoritosPage {
           if(keys[i]==firebase.auth().currentUser.uid){
             var datosFavs = datos[k]
             for(var x in datosFavs){
-              var favoritos=datosFavs[x].favorito;
+              var favoritos=datosFavs[x].Producto;
               console.log(favoritos);
               firebase.database().ref('Kioskos/Kiosko').on('value', data => {
                 if(data.val() != null){
@@ -35,6 +42,7 @@ export class FavoritosPage {
                       var k = keys[i];
                       
                         var datoKiosko = datos[k];
+                        
                         
                         
                       for(var y in datoKiosko){
@@ -65,12 +73,12 @@ export class FavoritosPage {
             }
           }
           
-          //console.log(datos[k]);
+          
           
         }
       }
     });
-    
+
   }
   closeModal(){
     firebase.database().ref('Usuario/'+firebase.auth().currentUser.uid).on('value', data =>{
@@ -101,9 +109,7 @@ export class FavoritosPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FavoritosPage');
+    console.log('ionViewDidLoad MisPedidosPage');
   }
-
-
 
 }
