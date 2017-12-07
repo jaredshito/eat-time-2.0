@@ -8,7 +8,7 @@ import firebase from 'firebase';
   templateUrl: 'favoritos.html',
 })
 export class FavoritosPage {
-  favoritos="";
+  Kioskos=[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -22,8 +22,8 @@ export class FavoritosPage {
           if(keys[i]==firebase.auth().currentUser.uid){
             var datosFavs = datos[k]
             for(var x in datosFavs){
-              this.favoritos=datosFavs[x];
-              //console.log(this.favoritos);
+              var favoritos=datosFavs[x].favorito;
+              console.log(favoritos);
               firebase.database().ref('Kioskos/Kiosko').on('value', data => {
                 if(data.val() != null){
                   var datos = data.val();
@@ -34,15 +34,23 @@ export class FavoritosPage {
                       
                         var datoKiosko = datos[k];
                         
-                        //console.log(datoKiosko);
+                        
                       for(var y in datoKiosko){
                         if(datoKiosko[y].Precio){
-                          if(datoKiosko[y].Id == this.favoritos){
+                          var xw=datoKiosko[y].Id;
+                          console.log("_"+xw);
+                          if( xw == favoritos){
                             console.log("hola");
+                            this.Kioskos.push(
+                              {
+                                Nombre : datoKiosko[y].Nombre,
+                                Descripcion : datoKiosko[y].Descripcion,
+                                
+                              }
+                            )
                           }
                           
-                            console.log(datoKiosko[y]);
-                            console.log(this.favoritos);
+                           
                           
                         }
                       }

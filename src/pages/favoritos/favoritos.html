@@ -15,6 +15,24 @@
 
 <ion-content padding>
   <h1>Seccion de favoritos</h1>
-  <p>we are fixing this part , sorry for the problems</p>
+  <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-card *ngFor="let card of Kioskos" >
+              <ion-card-header>
+                {{ card.Nombre }}
+              </ion-card-header>
+              <ion-card-content>
+              <p>
+                {{ card.Descripcion }}
+              </p>
+              
+                 </ion-card-content>
+            </ion-card>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+</ion-grid>
 
 </ion-content>
