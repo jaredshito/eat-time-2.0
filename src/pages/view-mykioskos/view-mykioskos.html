@@ -1,0 +1,53 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>viewMykioskos</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </button>
+</ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1>{{Kiosko.Nombre}}</h1>
+  <p>{{Kiosko.Descripcion}}</p>
+
+  <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <ion-card *ngFor="let card of Producto"  >
+                <ion-card-header>
+                  {{ card.PNombre }}
+                </ion-card-header>
+                <ion-card-content>
+                <p>
+                  {{ card.PDescripcion }}
+                </p>
+                   </ion-card-content>
+              </ion-card>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+</ion-grid>
+
+
+
+  
+</ion-content>
+
+
+
+
+<ion-footer>
+    <ion-toolbar>
+        <button ion-button color="positive" block (click)="AgregarMenu()">
+            Agregar Alimento 
+        </button>
+    </ion-toolbar>
+    </ion-footer>

@@ -1,0 +1,37 @@
+
+<ion-header>
+
+  <ion-navbar>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <h1>{{Kiosko.Nombre}}</h1>
+    <p>{{Kiosko.Descripcion}}</p>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <ion-card *ngFor="let card of Producto"  >
+                <ion-card-header>
+                  {{ card.PNombre }}
+                </ion-card-header>
+                <ion-card-content>
+                <p>
+                  {{ card.PDescripcion }}
+                </p>
+                <ion-icon name="add" ></ion-icon>
+                <ion-icon name="star"(click)="addFavoritos()"></ion-icon>
+                
+                   </ion-card-content>
+              </ion-card>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+</ion-grid>
+
+</ion-content>

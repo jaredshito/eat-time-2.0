@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Mis Kioskos</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </button>
+</ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ 
+    
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <ion-card *ngFor="let card of cards" (click)="viewCard(card.Nombre,card.Descripcion)">
+                <ion-card-header>
+                  {{ card.Nombre }}
+                </ion-card-header>
+                <ion-card-content>
+                <p>
+                  {{ card.Descripcion }}
+                </p>
+                  
+                   </ion-card-content>
+              </ion-card>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

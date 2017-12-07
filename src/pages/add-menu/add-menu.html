@@ -1,0 +1,61 @@
+
+<ion-header>
+
+  <ion-navbar>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="body">
+
+    <div class="formulario">
+     
+      <ion-item>
+        <ion-label floating>Nombre del Producto:</ion-label>
+        <ion-input [(ngModel)]="Producto.Nombre" type="text"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label floating>Precio del Producto:</ion-label>
+          <ion-input [(ngModel)]="Producto.Precio" type="text"></ion-input>
+        </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Ingrediente opcional:</ion-label>
+        <ion-input [(ngModel)]="Producto.Ingrediente1" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Ingrediente opcional:</ion-label>
+          <ion-input [(ngModel)]="Producto.Ingrediente2" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Ingrediente opcional:</ion-label>
+            <ion-input [(ngModel)]="Producto.Ingrediente3" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>ingrediente opcional:</ion-label>
+              <ion-input [(ngModel)]="Producto.Ingrediente4" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Tiempo de realizacion:</ion-label>
+                <ion-input [(ngModel)]="Producto.Tiempo" type="text"></ion-input>
+              </ion-item>
+
+             <ion-item>
+                  <ion-label floating>Descripcion:</ion-label>
+                  <ion-textarea [(ngModel)]="Producto.Descripcion"></ion-textarea>
+                </ion-item>
+
+      
+  
+      <button ion-button blick color="dark" (click)="guardar()" >Guardar</button>
+  
+    </div>
+  
+  </ion-content>
